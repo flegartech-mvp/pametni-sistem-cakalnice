@@ -1,100 +1,42 @@
-# PametniSistemCakalnice — POST_READY.md
+# PametniSistemCakalnice — POST_READY
 
-## Status: ✅ 100% COPY-AND-POST READY
+## ✅ Post-worthy: YES (redesigned 2026-06-14)
 
----
+## Attach this file first
+`promo/images/01-square-post.png`  →  Instagram / LinkedIn feed
 
-## Best Image to Post First
-`promo/images/01-square-post.png` (1080x1080)
+## Best image to post first
+`promo/images/01-square-post.png`
 
-## Screenshots Used
-- `audit/screenshots/final-ready/PametniSistemCakalnice/01-desktop.png` (real app screenshot)
-- `audit/screenshots/final-ready/PametniSistemCakalnice/02-login.png`
+**Why it's the strongest:** The real staff dashboard (live queue counts, priority triage, active rooms) shows a working operations tool with genuine data — much stronger than the previous blank/login capture.
 
-## Promo Image Files
-| File | Size | Use For |
-|------|------|---------|
-| `promo/images/01-square-post.png` | 1080×1080 | Instagram, LinkedIn post |
-| `promo/images/02-story-reel-cover.png` | 1080×1920 | IG/TikTok story |
-| `promo/images/03-linkedin-banner.png` | 1600×900 | LinkedIn banner |
-| `promo/images/04-github-preview.png` | 1280×720 | GitHub social preview |
-| `promo/images/05-feature-card.png` | 1200×1200 | Product Hunt |
+## Recommended platform order
+LinkedIn → X → GitHub preview → Instagram
 
----
-
-## Exact Copy-Paste Caption
-
+## Exact caption (copy–paste)
 ```
-Built a queue management system from scratch — PametniSistem 📋
+Run your waiting room, not the chaos. 🏥
 
-Waiting rooms, ticket queues, admin panels — all in a clean React app.
+Smart Queue is browser-based queue management for clinics and offices — live queues, priority triage, a public display and QR status check. Runs entirely in the browser, no backend.
 
-Features:
-→ Real-time queue display for customers
-→ Admin dashboard to manage queue flow
-→ React 18 + TypeScript + Vite + Tailwind
-→ Clean build, zero lint errors
-
-Open source. Free to self-host.
-GitHub link in bio.
-
-#webdev #react #typescript #queuemanagement #dashboard #buildinpublic #opensource #flegartech
+#saas #healthtech #reactjs #queue
 ```
 
----
+## All 5 assets
+| File | Use for |
+|------|---------|
+| `promo/images/01-square-post.png` | 1080×1080 — Instagram / LinkedIn feed |
+| `promo/images/02-story-reel-cover.png` | 1080×1920 — IG / TikTok story & reel cover |
+| `promo/images/03-linkedin-banner.png` | 1600×900 — LinkedIn feature / X / YouTube |
+| `promo/images/04-github-preview.png` | 1280×720 — GitHub social preview |
+| `promo/images/05-feature-card.png` | 1200×1200 — Product Hunt / feature card |
 
-## Hashtags
-```
-#webdev #react #typescript #vite #tailwind #queuemanagement #dashboard #buildinpublic #opensource #flegartech #saas
-```
+## Screenshot used
+docs/screenshots/02-dashboard.png — real staff dashboard with data
 
-## Suggested Platforms (in order)
-1. LinkedIn
-2. Twitter/X
-3. Reddit r/webdev
-4. Instagram
-
----
-
-## Safe Public Claims
-- "Queue management system"
-- "Real-time queue display"
-- "Admin dashboard"
-- "React 18 + TypeScript + Vite + Tailwind"
-- "Open source, self-hostable"
-- "Clean build, zero lint errors"
-
-## Claims to AVOID
-- Avoid "enterprise-grade" without enterprise customers
-- Avoid "handles thousands of customers" without benchmarks
-- Avoid uptime/SLA claims
-
----
-
-## 15-Second Video Script
-> "PametniSistem — a queue management system built with React.
-> Real-time display, admin panel, TypeScript throughout.
-> Open source, free to self-host.
-> GitHub link in bio."
-
-## 30-Second Demo Script
-> "PametniSistem is a queue management system I built for any business with a waiting room.
-> The customer display shows the current queue in real time.
-> The admin panel lets staff manage who's next, call numbers, and clear the queue.
-> Built with React 18, TypeScript, Vite, and Tailwind CSS.
-> Clean build, zero lint errors, ready to deploy.
-> Open source — self-host it for your business.
-> GitHub link in bio."
-
----
-
-## Promo Image Review
-- [x] All 5 images exist
-- [x] All correct sizes
-- [x] Real screenshot embedded
-- [x] No private information visible
+## QC checklist
+- [x] All 5 images exist at the correct sizes
+- [x] Real product screenshot used (no faked UI)
+- [x] Clean browser-frame composition, high-contrast readable text
+- [x] Unified FlegarTech brand (dark canvas + green accent)
 - [x] No fake claims
-- [x] Text readable
-- [x] Professional quality
-
-## Final Ready Status: ✅ COPY-AND-POST READY
