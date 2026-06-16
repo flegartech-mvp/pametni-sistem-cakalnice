@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback: BrowserRouter deep links (e.g. /patients, /dashboard, the
+# public display) must serve index.html so client routing can take over.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

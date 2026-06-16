@@ -39,3 +39,7 @@ ZBP1_ODDAJA/
 *.zip
 *_ODDAJA/
 Flegar_*/
+
+# compiled config artifacts (source of truth is vite.config.ts)
+vite.config.js
+vite.config.d.ts
