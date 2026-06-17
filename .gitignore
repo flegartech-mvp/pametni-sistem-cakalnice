@@ -43,3 +43,21 @@ Flegar_*/
 # compiled config artifacts (source of truth is vite.config.ts)
 vite.config.js
 vite.config.d.ts
+
+# --- repo cleanup hygiene (added) ---
+build/
+out/
+.next/
+.turbo/
+.vite/
+.cache/
+coverage/
+playwright-report/
+output/
+tmp/
+*.swp
+*.bak
+*.orig
+.env.local
+.env.*.local
+promo/
