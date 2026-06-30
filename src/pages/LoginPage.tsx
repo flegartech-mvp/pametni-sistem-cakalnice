@@ -15,6 +15,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { LEGAL_NOTE, STAFF_ROLES } from "../data/constants";
 import { useApp } from "../state/AppContext";
 import type { Role } from "../types";
+import { openAppWindow } from "../utils/window";
 
 const productBenefits = [
   {
@@ -144,7 +145,7 @@ export const LoginPage = () => {
         <button
           className="button button-secondary full-width"
           type="button"
-          onClick={() => window.open("/display", "_blank")}
+          onClick={() => openAppWindow("/display")}
         >
           <Monitor size={18} aria-hidden="true" />
           Odpri javni zaslon

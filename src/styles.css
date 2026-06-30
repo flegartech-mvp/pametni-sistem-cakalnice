@@ -275,6 +275,41 @@ a {
   min-height: 100vh;
 }
 
+.not-found-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px;
+}
+
+.not-found-card {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 620px);
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.not-found-card > svg {
+  color: var(--primary);
+}
+
+.not-found-card h1 {
+  margin: 0;
+  color: #0b1623;
+  font-size: 2.2rem;
+  line-height: 1.08;
+}
+
+.not-found-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .page-stack {
   display: grid;
   gap: 24px;

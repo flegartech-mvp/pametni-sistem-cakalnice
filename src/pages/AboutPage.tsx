@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useApp } from "../state/AppContext";
+import { openAppWindow } from "../utils/window";
 
 const explanationItems = [
   {
@@ -56,7 +57,7 @@ export const AboutPage = () => {
             <button
               className="button button-secondary"
               type="button"
-              onClick={() => window.open("/display", "_blank")}
+              onClick={() => openAppWindow("/display")}
             >
               <Monitor size={18} aria-hidden="true" />
               Javni zaslon

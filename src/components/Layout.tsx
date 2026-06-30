@@ -15,6 +15,7 @@ import { LEGAL_NOTE } from "../data/constants";
 import { useClock } from "../hooks/useClock";
 import { useApp } from "../state/AppContext";
 import { formatDate, formatTime } from "../utils/format";
+import { openAppWindow } from "../utils/window";
 
 const navItems = [
   { to: "/dashboard", label: "Nadzorna plošča", icon: LayoutDashboard },
@@ -55,7 +56,7 @@ export const Layout = () => {
         <button
           className="button button-secondary sidebar-display"
           type="button"
-          onClick={() => window.open("/display", "_blank")}
+          onClick={() => openAppWindow("/display")}
         >
           <Monitor size={18} aria-hidden="true" />
           Odpri javni zaslon

@@ -18,6 +18,9 @@ Node: 22+ (CI), verified on 24. Output: `dist`.
 ## Vercel / Netlify
 Config files included. The app uses `BrowserRouter`, so the **SPA rewrite/redirect to `/index.html` is required** for deep links (`/dashboard`, `/patients`, the public display, etc.).
 
+Both deployment configs also set baseline static-site security headers: CSP,
+Referrer-Policy, X-Content-Type-Options, Permissions-Policy, and frame blocking.
+
 ## Environment variables
 None required — runs fully in the browser. `.env.example` lists only *optional future* `VITE_` vars (backend API, analytics). Any `VITE_` var is **client-visible**; never store secrets.
 

@@ -19,6 +19,7 @@ import { useApp } from "../state/AppContext";
 import type { Patient, PatientStatus } from "../types";
 import { formatTime } from "../utils/format";
 import { getDepartmentName, getRoomName, sortQueuePatients } from "../utils/queue";
+import { openAppWindow } from "../utils/window";
 
 type SortMode = "priority" | "arrival" | "number";
 
@@ -243,7 +244,7 @@ export const PatientsPage = () => {
                       title="Odpri QR status"
                       type="button"
                       onClick={() => {
-                        window.open(patient.qrCodeUrl, "_blank");
+                        openAppWindow(patient.qrCodeUrl);
                         notify({
                           title: "QR status odprt",
                           description: `Odprta je stran za ${patient.number}.`,
@@ -364,7 +365,7 @@ export const PatientsPage = () => {
                   title="Odpri QR status"
                   type="button"
                   onClick={() => {
-                    window.open(patient.qrCodeUrl, "_blank");
+                    openAppWindow(patient.qrCodeUrl);
                     notify({
                       title: "QR status odprt",
                       description: `Odprta je stran za ${patient.number}.`,

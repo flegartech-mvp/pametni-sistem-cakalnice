@@ -91,22 +91,25 @@ test("main routes and navigation links render without serious console errors", a
   }
 
   await page.goto("/definitely-not-a-route");
-  await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page.getByRole("heading", { name: /povezava ne obstaja/i })).toBeVisible();
 
   const navTargets = [
-    "/patients",
-    "/patients/new",
-    "/queues",
-    "/reports",
-    "/about",
-    "/settings",
+    { href: "/patients", name: /pacienti/i },
+    { href: "/patients/new", name: /dodaj pacienta/i },
+    { href: "/queues", name: /čakalne vrste|cakalne vrste/i },
+    { href: "/reports", name: /poročila|porocila/i },
+    { href: "/settings", name: /nastavitve/i },
   ];
 
-  for (const href of navTargets) {
+  for (const { href, name } of navTargets) {
     await page.goto("/dashboard");
-    await page.locator(`a[href="${href}"]`).first().click();
+    await page.getByRole("navigation").getByRole("link", { name }).click();
     await expect(page).toHaveURL(new RegExp(`${href.replace("/", "\\/")}$`));
   }
+
+  await page.goto("/dashboard");
+  await page.getByRole("navigation").getByRole("link", { name: /o sistemu/i }).click();
+  await expect(page).toHaveURL(/\/about$/);
 
   await saveScreenshot(page, testInfo.project.name, "settings");
   expect(consoleErrors).toEqual([]);

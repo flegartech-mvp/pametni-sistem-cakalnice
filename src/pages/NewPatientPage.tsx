@@ -13,6 +13,7 @@ import { useApp } from "../state/AppContext";
 import type { PatientInput, PatientStatus, Priority, ReasonCategory, VisitType } from "../types";
 import { getDefaultRoomForDepartment } from "../utils/queue";
 import { normalizeInitials, validatePatientInput } from "../utils/patientValidation";
+import { openAppWindow } from "../utils/window";
 
 const visitToDepartment: Record<VisitType, string> = {
   "Urgentni center": "urgentni",
@@ -296,7 +297,7 @@ export const NewPatientPage = () => {
           <button className="button button-secondary" type="button" onClick={() => navigate("/patients")}>
             Prekliči
           </button>
-          <button className="button button-secondary" type="button" onClick={() => window.open("/display", "_blank")}>
+          <button className="button button-secondary" type="button" onClick={() => openAppWindow("/display")}>
             <QrCode size={18} aria-hidden="true" />
             Odpri javni zaslon
           </button>
