@@ -460,6 +460,93 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.operations-strip {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.78fr) minmax(250px, 1fr) minmax(420px, 1.55fr);
+  gap: 14px;
+}
+
+.operations-strip article {
+  min-width: 0;
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-sm);
+}
+
+.operations-strip span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 830;
+  text-transform: uppercase;
+}
+
+.operations-strip strong {
+  display: block;
+  margin-top: 6px;
+  color: #0b1623;
+  font-size: 1.65rem;
+  line-height: 1.05;
+}
+
+.operations-strip p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.operations-load {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.45fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.load-chips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.load-chips div {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 5px 7px;
+  align-items: center;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: #f8fafc;
+}
+
+.load-chips svg {
+  color: var(--primary);
+}
+
+.load-chips span {
+  min-width: 0;
+  color: #344054;
+  font-size: 0.82rem;
+  text-transform: none;
+}
+
+.load-chips strong {
+  margin: 0;
+  color: var(--primary-strong);
+  font-size: 1.2rem;
+}
+
+.load-chips small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 720;
+}
+
 .stat-card {
   position: relative;
   display: flex;
@@ -1300,6 +1387,29 @@ textarea[aria-invalid="true"] {
   font-size: 0.84rem;
 }
 
+.queue-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.queue-summary span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #475467;
+  font-size: 0.74rem;
+  font-weight: 820;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .queue-list {
   display: grid;
   gap: 12px;
@@ -1645,6 +1755,7 @@ textarea[aria-invalid="true"] {
 
 .status-message span,
 .timeline-panel > div > span {
+  display: block;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 850;
@@ -1653,6 +1764,8 @@ textarea[aria-invalid="true"] {
 
 .status-message strong,
 .timeline-panel > div > strong {
+  display: block;
+  margin-top: 5px;
   color: #172033;
   font-size: 1.08rem;
 }
@@ -1958,6 +2071,14 @@ textarea[aria-invalid="true"] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .operations-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operations-load {
+    grid-column: 1 / -1;
+  }
+
   .filter-bar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2108,6 +2229,7 @@ textarea[aria-invalid="true"] {
   .form-grid,
   .filter-bar,
   .product-grid,
+  .operations-strip,
   .stat-grid,
   .stat-grid.compact,
   .status-grid,
@@ -2434,6 +2556,11 @@ textarea[aria-invalid="true"] {
     width: 100%;
   }
 
+  .operations-load,
+  .load-chips {
+    grid-template-columns: 1fr;
+  }
+
   .preview-ticket strong {
     font-size: clamp(1.3rem, 9vw, 1.85rem);
     overflow-wrap: anywhere;
@@ -2610,6 +2737,11 @@ textarea[aria-invalid="true"] {
     display: grid;
   }
 
+  .queue-summary {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
   .queue-header .button,
   .quick-actions .button {
     width: 100%;
@@ -2637,21 +2769,4 @@ textarea[aria-invalid="true"] {
   .stat-card {
     box-shadow: none;
   }
-}
-
-.support-note {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted, #9ca3af);
-}
-
-.support-link {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.support-link:hover {
-  opacity: 0.8;
 }

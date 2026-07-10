@@ -2,6 +2,7 @@ import {
   Activity,
   AlarmClock,
   ArrowRight,
+  Building2,
   ClipboardCheck,
   FlaskConical,
   HeartPulse,
@@ -17,13 +18,33 @@ import { StatCard } from "../components/StatCard";
 import { useApp } from "../state/AppContext";
 import { formatTime, humanMinutes, minutesBetween } from "../utils/format";
 import { getDashboardMetrics } from "../utils/reports";
-import { getDepartmentName, getRoomName, sortQueuePatients } from "../utils/queue";
+import {
+  getDepartmentName,
+  getRoomName,
+  sortQueuePatients,
+} from "../utils/queue";
 
 export const DashboardPage = () => {
   const { patients, settings, callNextPatient } = useApp();
   const metrics = getDashboardMetrics(patients, settings);
   const activePatients = sortQueuePatients(metrics.active).slice(0, 6);
   const waitingPreview = sortQueuePatients(metrics.waiting).slice(0, 6);
+  const departmentLoad = settings.departments
+    .filter((department) =>
+      ["urgentni", "laboratorij", "ambulante", "diagnostika"].includes(
+        department.id,
+      ),
+    )
+    .map((department) => {
+      const waiting = metrics.waiting.filter(
+        (patient) => patient.department === department.id,
+      ).length;
+      const active = metrics.active.filter(
+        (patient) => patient.department === department.id,
+      ).length;
+
+      return { ...department, waiting, active };
+    });
 
   return (
     <div className="page-stack">
@@ -46,6 +67,35 @@ export const DashboardPage = () => {
             Upravljaj vrste
           </Link>
         </div>
+      </section>
+
+      <section className="operations-strip" aria-label="Povzetek obremenitve">
+        <article>
+          <span>Trenutna obremenitev</span>
+          <strong>{metrics.waiting.length + metrics.active.length}</strong>
+          <p>pacientov je trenutno v aktivnem toku</p>
+        </article>
+        <article>
+          <span>Prioritetni nadzor</span>
+          <strong>{metrics.urgent.length}</strong>
+          <p>nujnih ali kritičnih primerov za prednostno obravnavo</p>
+        </article>
+        <article className="operations-load">
+          <div>
+            <span>Oddelki</span>
+            <strong>Stanje vrst</strong>
+          </div>
+          <div className="load-chips">
+            {departmentLoad.map((department) => (
+              <div key={department.id}>
+                <Building2 size={16} aria-hidden="true" />
+                <span>{department.code}</span>
+                <strong>{department.waiting}</strong>
+                <small>{department.active} aktivno</small>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
 
       <section className="stat-grid">

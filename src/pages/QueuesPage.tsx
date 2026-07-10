@@ -18,7 +18,7 @@ import { PATIENT_STATUSES, PRIORITIES } from "../data/constants";
 import { useApp } from "../state/AppContext";
 import type { Department, Patient, PatientStatus, Priority } from "../types";
 import { formatTime, humanMinutes, minutesBetween } from "../utils/format";
-import { getDepartmentQueue, getRoomName } from "../utils/queue";
+import { activeStatuses, getDepartmentQueue, getRoomName } from "../utils/queue";
 
 const icons = {
   urgentni: HeartPulse,
@@ -295,6 +295,14 @@ export const QueuesPage = () => {
           const Icon = icons[department.id as keyof typeof icons] ?? Stethoscope;
           const rawQueue = getDepartmentQueue(patients, department.id, true);
           const queue = filterQueue(rawQueue);
+          const waitingCount = queue.filter(
+            (patient) => !activeStatuses.includes(patient.status),
+          ).length;
+          const activeCount = queue.length - waitingCount;
+          const urgentCount = queue.filter(
+            (patient) =>
+              patient.priority === "Nujno" || patient.priority === "Kritično",
+          ).length;
 
           return (
             <article className="queue-column" key={department.id}>
@@ -305,6 +313,11 @@ export const QueuesPage = () => {
                     <h2>{department.name}</h2>
                     <span>{queue.length} pacientov v vrsti</span>
                   </div>
+                </div>
+                <div className="queue-summary" aria-label={`Povzetek za ${department.name}`}>
+                  <span>{waitingCount} čaka</span>
+                  <span>{activeCount} aktivno</span>
+                  <span>{urgentCount} nujno</span>
                 </div>
                 <button
                   className="button button-primary"

@@ -299,17 +299,6 @@ export const SettingsPage = () => {
         }}
       />
 
-      <p className="support-note">
-        Made by FlegarTech &mdash;{" "}
-        <a
-          href="https://paypal.me/TiniFlegar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="support-link"
-        >
-          Support development
-        </a>
-      </p>
     </div>
   );
 };
